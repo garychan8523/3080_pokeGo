@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C9CA8CD-2599-41AE-A88B-03B8FE1E8564}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>pokego</RootNamespace>
+    <AssemblyName>pokego</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="catchview.xaml.cs">
+      <DependentUpon>catchview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="gymview.xaml.cs">
+      <DependentUpon>gymview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryview.xaml.cs">
+      <DependentUpon>inventoryview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="mainview.xaml.cs">
+      <DependentUpon>mainview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pokegym.cs" />
+    <Compile Include="Pokemon.cs" />
+    <Compile Include="Poketrainer.cs" />
+    <Compile Include="Pokeworld.cs" />
+    <Page Include="catchview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gymview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="inventoryview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mainview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pokebg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pokemap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\poketrainer_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\poketrainer_rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\poketrainer_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\poketrainer_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\poketrainer_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\poketrainer_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\poketrainer_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\battlebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dialogbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pokecenterbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\btn_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pokegymbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\gymbattlebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Abra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Aerodactyl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bellsprout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bulbasaur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Caterpie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Chansey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Charmander.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Clefairy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cubone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Diglett.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ditto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Doduo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Dratini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Drowzee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Eevee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ekans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Electabuzz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Exeggcute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Farfetchd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Gastly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Geodude.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Goldeen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Grimer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Growlithe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Hitmonchan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Hitmonlee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Horsea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jigglypuff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jynx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kabuto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kangaskhan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Koffing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Krabby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Lapras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Lickitung.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Machop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Magikarp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Magmar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Magnemite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mankey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Meowth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mr. Mime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NidoranF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NidoranM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Oddish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Omanyte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Onix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Paras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pidgey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pikachu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pinsir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Poliwag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ponyta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Porygon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Psyduck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Rattata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Rhyhorn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Sandshrew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Scyther.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Seel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Shellder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Slowpoke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Snorlax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Spearow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Squirtle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Staryu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tangela.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tauros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tentacool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Venonat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Voltorb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Vulpix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Weedle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Zubat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Abrabk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Aerodactylbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bellsproutbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bulbasaurbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Caterpiebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Chanseybk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Charmanderbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Clefairybk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cubonebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Diglettbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Dittobk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Doduobk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Dratinibk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Drowzeebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Eeveebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ekansbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Electabuzzbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Exeggcutebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Farfetchdbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Gastlybk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Geodudebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Goldeenbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Grimerbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Growlithebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Hitmonchanbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Hitmonleebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Horseabk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jigglypuffbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jynxbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kabutobk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kangaskhanbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Koffingbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Krabbybk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Laprasbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Lickitungbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Machopbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Magikarpbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Magmarbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Magnemitebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mankeybk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Meowthbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mewbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mr. Mimebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NidoranFbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NidoranMbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Oddishbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Omanytebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Onixbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Parasbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pidgeybk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pikachubk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pinsirbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Poliwagbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ponytabk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Porygonbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Psyduckbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Rattatabk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Rhyhornbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Sandshrewbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Scytherbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Seelbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Shellderbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Slowpokebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Snorlaxbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Spearowbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Squirtlebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Staryubk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tangelabk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Taurosbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tentacoolbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Venonatbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Voltorbbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Vulpixbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Weedlebk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Zubatbk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pokeap.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pokehp.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pokename.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\poketype.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
